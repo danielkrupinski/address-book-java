@@ -1,4 +1,4 @@
-package com.github.danielkrupinski.adress_book_java;
+package com.github.danielkrupinski.address_book_java;
 
 import java.io.IOException;
 
