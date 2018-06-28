@@ -50,4 +50,9 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
+
+    public Stage getPrimaryStage()
+    {
+        return primaryStage;
+    }
 }
