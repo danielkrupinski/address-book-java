@@ -16,4 +16,19 @@ public class Person {
     private final IntegerProperty postalCode;
     private final StringProperty city;
     private final ObjectProperty<LocalDate> birthday;
+
+    public Person() {
+        this(null, null);
+    }
+    
+    public Person(String firstName, String lastName) {
+        this.firstName = new SimpleStringProperty(firstName);
+        this.lastName = new SimpleStringProperty(lastName);
+
+        this.street = new SimpleStringProperty("street");
+        this.postalCode = new SimpleIntegerProperty(12345);
+        this.city = new SimpleStringProperty("city");
+        this.birthday = new SimpleObjectProperty<LocalDate>(LocalDate.of(2000, 1, 1));
+    }
+
 }
