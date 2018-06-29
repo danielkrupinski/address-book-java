@@ -13,6 +13,22 @@ public class MainApp extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
 
+    private ObservableList<Person> personData = FXCollections.observableArrayList();
+
+    public MainApp()
+    {
+        personData.add(new Person("Bud", "Hobbs"));
+        personData.add(new Person("Lauren", "Spear"));
+        personData.add(new Person("Quanah", "Granville"));
+        personData.add(new Person("Jennie", "Everett"));
+        personData.add(new Person("Cynthia", "Stevenson"));
+    }
+
+    public ObservableList<Person> getPersonData()
+    {
+        return personData;
+    }
+
     @Override
     public void start(Stage primaryStage)
     {
