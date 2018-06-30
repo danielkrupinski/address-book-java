@@ -59,7 +59,6 @@
                         <Label fx:id="birthdayLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
-                  <ButtonBar layoutX="239.0" layoutY="358.0" prefHeight="40.0" prefWidth="200.0" />
                   <ButtonBar buttonMinWidth="0.0" layoutX="140.0" layoutY="331.0" prefHeight="40.0" prefWidth="218.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
                      <buttons>
                         <Button mnemonicParsing="false" text="New..." />
