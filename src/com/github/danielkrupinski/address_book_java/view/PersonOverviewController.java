@@ -7,6 +7,7 @@ import javafx.scene.control.TableView;
 
 import com.github.danielkrupinski.address_book_java.MainApp;
 import com.github.danielkrupinski.address_book_java.model.Person;
+import com.github.danielkrupinski.address_book_java.util.DateUtil;
 
 public class PersonOverviewController {
     @FXML
