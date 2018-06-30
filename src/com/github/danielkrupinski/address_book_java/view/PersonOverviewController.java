@@ -48,4 +48,23 @@ public class PersonOverviewController {
         this.mainApp = mainApp;
         personTable.setItems(mainApp.getPersonData());
     }
+
+    private void showPersonDetails(Person person)
+    {
+        if (person != null) {
+            firstNameLabel.setText(person.getFirstName());
+            lastNameLabel.setText(person.getLastName());
+            streetLabel.setText(person.getStreet());
+            postalCodeLabel.setText(Integer.toString(person.getPostalCode()));
+            cityLabel.setText(person.getCity());
+            // TODO: birthdayLabel
+        } else {
+            firstNameLabel.setText("");
+            lastNameLabel.setText("");
+            streetLabel.setText("");
+            postalCodeLabel.setText("");
+            cityLabel.setText("");
+            birthdayLabel.setText("");
+        }
+    }
 }
