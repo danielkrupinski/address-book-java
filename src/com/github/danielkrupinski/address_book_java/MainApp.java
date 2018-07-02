@@ -105,6 +105,29 @@ public class MainApp extends Application {
         }
     }
 
+    public File getPersonFilePath()
+    {
+        Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+        String filePath = prefs.get("filePath", null);
+        if (filePath != null) {
+            return new File(filePath);
+        } else {
+            return null;
+        }
+    }
+
+    public void setPersonFilePath(File file)
+    {
+        Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+        if (file != null) {
+            prefs.put("filePath", file.getPath());
+            primaryStage.setTitle("Address Book - " + file.getName());
+        } else {
+            prefs.remove("filePath");
+            primaryStage.setTitle("Address Book");
+        }
+    }
+
     public Stage getPrimaryStage()
     {
         return primaryStage;
