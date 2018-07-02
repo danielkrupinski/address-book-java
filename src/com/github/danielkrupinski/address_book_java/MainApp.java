@@ -53,14 +53,23 @@ public class MainApp extends Application {
     {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
+            loader.setLocation(MainApp.class
+            .getResource("view/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
+
+            RootLayoutController controller = loader.getController();
+            controller.setMainApp(this);
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        File file = getPersonFilePath();
+        if (file != null) {
+            loadPersonDataFromFile(file);
         }
     }
 
@@ -116,7 +125,7 @@ public class MainApp extends Application {
             return null;
         }
     }
-    
+
     public void setPersonFilePath(File file)
     {
         Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
