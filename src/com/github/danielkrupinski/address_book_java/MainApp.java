@@ -116,7 +116,7 @@ public class MainApp extends Application {
             return null;
         }
     }
-
+    
     public void setPersonFilePath(File file)
     {
         Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
@@ -126,6 +126,49 @@ public class MainApp extends Application {
         } else {
             prefs.remove("filePath");
             primaryStage.setTitle("Address Book");
+        }
+    }
+
+    public void loadPersonDataFromFile(File file)
+    {
+        try {
+            JAXBContext context = JAXBContext
+            .newInstance(PersonListWrapper.class);
+            Unmarshaller um = context.createUnmarshaller();
+            PersonListWrapper wrapper = (PersonListWrapper) um.unmarshal(file);
+
+            personData.clear();
+            personData.addAll(wrapper.getPersons());
+
+            setPersonFilePath(file);
+
+        } catch (Exception e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Could not load data");
+            alert.setContentText("Could not load data from file:\n" + file.getPath());
+            alert.showAndWait();
+        }
+    }
+
+    public void savePersonDataToFile(File file)
+    {
+        try {
+            JAXBContext context = JAXBContext
+            .newInstance(PersonListWrapper.class);
+            Marshaller m = context.createMarshaller();
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            PersonListWrapper wrapper = new PersonListWrapper();
+            wrapper.setPersons(personData);
+            m.marshal(wrapper, file);
+            setPersonFilePath(file);
+        } catch (Exception e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Could not save data");
+            alert.setContentText("Could not save data to file:\n" + file.getPath());
+            alert.showAndWait();
         }
     }
 
