@@ -14,6 +14,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import com.github.danielkrupinski.address_book_java.model.Person;
+import com.github.danielkrupinski.address_book_java.model.PersonListWrapper;
 import com.github.danielkrupinski.address_book_java.view.PersonOverviewController;
 import com.github.danielkrupinski.address_book_java.view.PersonEditDialogController;
 
