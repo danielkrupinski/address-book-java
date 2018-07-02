@@ -9,6 +9,10 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import com.github.danielkrupinski.address_book_java.util.LocalDateAdapter;
+
 public class Person {
     private final StringProperty firstName;
     private final StringProperty lastName;

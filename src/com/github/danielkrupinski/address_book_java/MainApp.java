@@ -1,22 +1,31 @@
 package com.github.danielkrupinski.address_book_java;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.prefs.Preferences;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+
 import com.github.danielkrupinski.address_book_java.model.Person;
 import com.github.danielkrupinski.address_book_java.model.PersonListWrapper;
 import com.github.danielkrupinski.address_book_java.view.PersonOverviewController;
 import com.github.danielkrupinski.address_book_java.view.PersonEditDialogController;
+import com.github.danielkrupinski.address_book_java.view.RootLayoutController;
 
 public class MainApp extends Application {
     private Stage primaryStage;
