@@ -65,7 +65,8 @@ public class RootLayoutController {
     }
 
     @FXML
-    private void handleAbout() {
+    private void handleAbout()
+    {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Address Book");
         alert.setHeaderText("About");
@@ -75,7 +76,8 @@ public class RootLayoutController {
     }
 
     @FXML
-    private void handleExit() {
+    private void handleExit()
+    {
         System.exit(0);
     }
 }
